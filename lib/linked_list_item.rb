@@ -6,7 +6,8 @@ class LinkedListItem
   end
 
   def payload
-
+    # by default a ruby method returns the value of the last expression
+    @payload
   end
 end
 

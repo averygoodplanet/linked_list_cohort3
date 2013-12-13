@@ -48,6 +48,11 @@ class LinkedListItem
       #initialize function creates the object and sets instance variables
       @payload  = payload
   end
+
+  def last?
+    # the linked list item is last if it doesn't have a next_list_item
+    return true if self.next_list_item == nil
+  end
 end
 
 # LinkedListItem.new("foo").payload => "foo"   #creates a new object with value "foo"

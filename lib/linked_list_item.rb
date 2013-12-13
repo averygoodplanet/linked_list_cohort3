@@ -35,6 +35,11 @@ class LinkedListItem
   def next_list_item=value
     @next_list_item=value
   end
+
+  def next_list_item
+    @next_list_item
+  end
+
 end
 
 # LinkedListItem.new("foo").payload => "foo"   #creates a new object with value "foo"

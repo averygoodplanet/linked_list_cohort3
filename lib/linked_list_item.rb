@@ -22,6 +22,7 @@ class LinkedListItem
 #you can do a series e.g. attr_accessor :apples, :oranges,
 
 # by default a ruby method returns the value of the last expression,  or the last condition
+  include Comparable
 
   attr_reader :next_list_item
 
@@ -56,6 +57,17 @@ class LinkedListItem
     # this was refactored--ruby automatically returns the last expression
   end
 
+  def <=>(another)
+    payload <=> another.payload
+  end
+
+  def ===(another)
+    # in this class Eliza wants triple equals to mean equality
+    self.object_id == another.object_id
+    # putting TRIPLE equals here gives a SystemStackError
+    # because was in an infinite loop because self-referential
+    # e.g. using === in a function that defines ===
+  end
 end
 
 # LinkedListItem.new("foo").payload => "foo"   #creates a new object with value "foo"

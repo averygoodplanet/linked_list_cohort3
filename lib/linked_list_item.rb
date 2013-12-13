@@ -51,8 +51,11 @@ class LinkedListItem
 
   def last?
     # the linked list item is last if it doesn't have a next_list_item
-    return true if self.next_list_item == nil
+    # return true if self.next_list_item == nil
+    self.next_list_item.nil?
+    # this was refactored--ruby automatically returns the last expression
   end
+
 end
 
 # LinkedListItem.new("foo").payload => "foo"   #creates a new object with value "foo"

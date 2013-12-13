@@ -58,7 +58,15 @@ class LinkedListItem
   end
 
   def <=>(another)
-    payload <=> another.payload
+    if (payload.class ==Symbol and another.payload.class==String)
+      #returning +1 to signify symbol > string
+      +1
+    elsif (payload.class==String and another.payload.class==Symbol)
+      #returning -1 to signify string < symbol
+      -1
+    else
+      payload <=> another.payload
+    end
   end
 
   def ===(another)

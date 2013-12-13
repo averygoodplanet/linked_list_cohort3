@@ -64,6 +64,14 @@ class LinkedListItem
     elsif (payload.class==String and another.payload.class==Symbol)
       #returning -1 to signify string < symbol
       -1
+    elsif (payload.class==Fixnum and another.payload.class==String)
+      # returning -1 to signify Fixnum < String
+      # Fixnum is class of integers
+      -1
+    elsif (payload.class==String and another.payload.class==Fixnum)
+      # returning +1 to signify String > Fixnum
+      # Fixnum is class of integers
+      +1
     else
       payload <=> another.payload
     end

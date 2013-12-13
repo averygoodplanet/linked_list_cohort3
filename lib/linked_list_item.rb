@@ -27,6 +27,14 @@ class LinkedListItem
       #initialize function creates the object and sets instance variables
       @payload = payload
   end
+
+  def payload
+    @payload
+  end
+
+  def next_list_item=value
+    @next_list_item=value
+  end
 end
 
 # LinkedListItem.new("foo").payload => "foo"   #creates a new object with value "foo"

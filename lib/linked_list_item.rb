@@ -23,23 +23,31 @@ class LinkedListItem
 
 # by default a ruby method returns the value of the last expression,  or the last condition
 
-  def initialize (payload)
+  attr_reader :next_list_item
+
+  def next_list_item=(value)  #attr_writer, parenthesis
+    @next_list_item = value
+    # if next_list_item is myself, raise ArgumentError
+    raise ArgumentError if next_list_item.object_id == self.object_id
+    # self is the object which is running this method; similar to JS 'this'
+    # if error raised, a break occurs (need to have a try-catch)
+  end
+
+  # def next_list_item #attr_reader method
+  #   @next_list_item
+  # end
+
+  attr_reader :payload
+
+
+  # def payload #attr_reader, returns the value of @payload
+  #   @payload
+  # end
+
+  def initialize(payload)
       #initialize function creates the object and sets instance variables
-      @payload = payload
+      @payload  = payload
   end
-
-  def payload
-    @payload
-  end
-
-  def next_list_item=value
-    @next_list_item=value
-  end
-
-  def next_list_item
-    @next_list_item
-  end
-
 end
 
 # LinkedListItem.new("foo").payload => "foo"   #creates a new object with value "foo"

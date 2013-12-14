@@ -28,6 +28,7 @@ class LinkedList
   def get(number)
     #later will add if index == 0
     if number == 0
+      raise IndexError if @first_node.nil?
       @first_node.payload
     else
       #start at first node
@@ -35,6 +36,7 @@ class LinkedList
       # if get(1),  will start at first node and make 1 traversal
       for i in 1..number
       #get next list item aka traversing the nodes in the linked list
+        raise IndexError if current_node.nil?
         current_node = current_node.next_list_item
       end
       #return value of nth node

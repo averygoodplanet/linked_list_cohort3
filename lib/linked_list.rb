@@ -27,7 +27,19 @@ class LinkedList
 
   def get(number)
     #later will add if index == 0
-    @first_node.payload
+    if number == 0
+      @first_node.payload
+    else
+      #start at first node
+      current_node = @first_node
+      # if get(1),  will start at first node and make 1 traversal
+      for i in 1..number
+      #get next list item aka traversing the nodes in the linked list
+        current_node = current_node.next_list_item
+      end
+      #return value of nth node
+      current_node.payload
+    end
   end
 
   def find_last_node

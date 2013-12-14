@@ -23,4 +23,16 @@ class LinkedList
     #later will add if index == 0
     @first_node.payload
   end
+
+  def find_last_node
+    #start at the first_node
+    current_node = @first_node
+    # keep going until you find the last node
+    # the last node if the node whose next_item variable is nil
+    until current_node.next_list_item.nil?
+      current_node = current_node.next_list_item
+    end
+    #return current_node
+    current_node
+  end
 end

@@ -1,7 +1,10 @@
 class LinkedList
 
+  attr_reader :size
+
   def initialize
     @first_node
+    @size = 0
   end
 
   def add_item(payload)

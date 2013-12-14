@@ -24,8 +24,7 @@ class LinkedList
       last_node = self.find_last_node
       last_node.next_list_item = lli
     end
-    #if first_node is already a LinkedListItem, then
-    # find the last item, and add a next item to it? e.g. next_list_item=(value)
+    @size += 1
   end
 
   def get(number)

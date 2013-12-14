@@ -11,9 +11,15 @@ class LinkedList
 
     lli = LinkedListItem.new(payload)
     if @first_node.nil?
+      # if there is no first_node in the LinkedList, then
+      # assign the node to the first_node
       @first_node=lli
     else
-
+      #if there is already a first_node in the LInkedList, then
+      # find the last node, and add the new node as
+      # last_node.next_list_item
+      last_node = self.find_last_node
+      last_node.next_list_item = lli
     end
     #if first_node is already a LinkedListItem, then
     # find the last item, and add a next item to it? e.g. next_list_item=(value)

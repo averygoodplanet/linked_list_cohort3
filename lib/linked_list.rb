@@ -2,9 +2,13 @@ class LinkedList
 
   attr_reader :size
 
-  def initialize
-    @first_node
+  def initialize(*seeds)
     @size = 0
+
+    @first_node
+    for i in seeds
+      self.add_item(i)
+    end
   end
 
   def add_item(payload)

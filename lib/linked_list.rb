@@ -151,8 +151,26 @@ class LinkedList
   end
 
   def sorted?
-    if @size == 0
+    if @size <= 1
       true
+    elsif self.all_duplicates?
+      true
+    else
     end
+  end
+
+  def all_duplicates?
+    # returning true-false whether all the items in the
+    # linkedlist have the same payload
+    payload = @first_node.payload
+    duplicates = true
+    for i in 0..(@size-1)
+      # if you find a non-duplicate, break and return false
+      if self.get(i) != payload
+        duplicates = false
+        break
+      end
+    end
+    duplicates
   end
 end

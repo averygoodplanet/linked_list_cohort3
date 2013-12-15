@@ -144,6 +144,7 @@ class LinkedList
       # if item's payload matches, store it's index
       if self.get(i) == payload
         index = i
+        break
       end
     end
     index

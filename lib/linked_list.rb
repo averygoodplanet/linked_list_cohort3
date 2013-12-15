@@ -260,10 +260,20 @@ class LinkedList
 
   def swap_with_next(index)
     #get the nodes in the pair
-
+    current_node = retrieve_node(index)
+    next_node = retrieve_node(index+1)
+    # set after_node to nil or to node following the pair of nodes
+    next_node.next_list_item.nil?  ?  after_node = nil : after_node = next_node.next_list_item
     #change pointers
-
+    current_node.next_list_item_no_ArgumentError= after_node
+    next_node.next_list_item= current_node
     #deal with relationship of swapped pair to preceding item
     # or set the now earlier pair-member to first_node
+    if index==0
+      @first_node = next_node
+    else
+      before_node = retrieve_node(index -1)
+      before_node.next_list_item = next_node if index != 0
+    end
   end
 end

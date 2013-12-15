@@ -21,7 +21,7 @@ class LinkedList
       #if there is already a first_node in the LInkedList, then
       # find the last node, and add the new node as
       # last_node.next_list_item
-      last_node = self.find_last_node
+      last_node = self.last
       last_node.next_list_item = lli
     end
     @size += 1
@@ -48,15 +48,20 @@ class LinkedList
     end
   end
 
-  def find_last_node
-    #start at the first_node
-    current_node = @first_node
-    # keep going until you find the last node
-    # the last node if the node whose next_item variable is nil
-    until current_node.next_list_item.nil?
-      current_node = current_node.next_list_item
+  def last
+    if @first_node.nil?
+      nil
+    else
+      #start at the first_node
+      current_node = @first_node
+      # keep going until you find the last node
+      # the last node if the node whose next_item variable is nil
+      until current_node.next_list_item.nil?
+        current_node = current_node.next_list_item
+      end
+      #return current_node
+      current_node
     end
-    #return current_node
-    current_node
   end
+
 end

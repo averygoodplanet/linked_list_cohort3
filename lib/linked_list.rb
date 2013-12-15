@@ -64,4 +64,8 @@ class LinkedList
     end
   end
 
+def to_s
+  display_string = "| |"
+end
+
 end

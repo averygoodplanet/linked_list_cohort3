@@ -51,6 +51,26 @@ class LinkedList
     end
   end
 
+  def retrieve_node(number)
+    raise IndexError if @first_node == nil
+    if number == 0
+      @first_node
+    elsif number > 0
+      #start at first node
+      current_node = @first_node
+      # if get(1),  will start at first node and make 1 traversal
+      for i in 1..number
+      #get next list item aka traversing the nodes in the linked list
+        raise IndexError if current_node.next_list_item == nil
+        current_node = current_node.next_list_item
+      end
+      #return value of nth node
+      current_node
+    else
+      raise IndexError, "negative index passed to ll.get()"
+    end
+  end
+
   def last
     if @first_node.nil?
       nil
@@ -93,6 +113,7 @@ class LinkedList
 
   def []=(index, payload) # args for ll[index]=payload
     #find the node at index
+    retrieve_node(index).payload=payload
     #assign payload to the node
   end
 end

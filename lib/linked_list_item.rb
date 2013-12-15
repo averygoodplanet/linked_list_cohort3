@@ -38,7 +38,7 @@ class LinkedListItem
   #   @next_list_item
   # end
 
-  attr_reader :payload
+  attr_accessor :payload
 
 
   # def payload #attr_reader, returns the value of @payload

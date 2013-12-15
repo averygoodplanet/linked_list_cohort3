@@ -201,8 +201,8 @@ class LinkedList
       current_node = @first_node
       next_node = @first_node.next_list_item
       begin
-        puts "\nself at begin: " + self.to_s
-        puts "current_node, next_node: " + current_node.payload.to_s + ", " + next_node.payload.to_s  if !next_node.nil?
+        #puts "\nself at begin: " + self.to_s
+        #puts "current_node, next_node: " + current_node.payload.to_s + ", " + next_node.payload.to_s  if !next_node.nil?
         # each round start with no swaps
         swapped_this_pair = false
         # when current node is the first node, reset swapped_this_full_cycle
@@ -210,12 +210,20 @@ class LinkedList
         # determine whether the pair is already in order
         # include but < and = (for duplicates)
         in_order = (current_node <= next_node)
-        puts  "in_order: " + in_order.to_s
+        #puts  "in_order: " + in_order.to_s
         if !in_order
           #if pair is out of order, swap them
+
+          # set after_node to nil or to node following the pair of nodes
           next_node.next_list_item.nil?  ?  after_node = nil : after_node = next_node.next_list_item
+          # change pointers
+          #current_node now points to after_node (instead of to next_node)
           current_node.next_list_item_no_ArgumentError= after_node
+          #next_node now points to current_node (instead of to after_node)
           next_node.next_list_item= current_node
+          #check whether the current_node was previously @first_node
+          #and then either make next_node the @first_node or set pointer
+          #from node now preceding the pair to next_node (next_node is now first in pair)
           current_node_index == 0 ? @first_node = next_node : before_node = retrieve_node(current_node_index - 1)
           before_node.next_list_item = next_node if current_node_index != 0
           swapped_this_pair = true
@@ -234,19 +242,28 @@ class LinkedList
             #a swap has occurred
             # current_node is now already in proper new position
             next_node = current_node.next_list_item
-            puts "new next_node.nil?: " + next_node.nil?.to_s
+            #puts "new next_node.nil?: " + next_node.nil?.to_s
          else
            new_node = next_node.next_list_item
            current_node = next_node
            next_node = new_node if new_node != nil
          end
         end
-        puts  "swapped_this_pair: " + swapped_this_pair.to_s
-        puts "self at end: " + self.to_s
-        puts "current_node, next_node at end: " + current_node.payload.to_s + ", " + next_node.payload.to_s  if !next_node.nil?
+        #puts  "swapped_this_pair: " + swapped_this_pair.to_s
+        #puts "self at end: " + self.to_s
+        #puts "current_node, next_node at end: " + current_node.payload.to_s + ", " + next_node.payload.to_s  if !next_node.nil?
       end until !swapped_this_full_cycle and (current_node_index ==0  or @size <= 2)
     end
     # return self; the changes to order will be made in self
     self
+  end
+
+  def swap_with_next(index)
+    #get the nodes in the pair
+
+    #change pointers
+
+    #deal with relationship of swapped pair to preceding item
+    # or set the now earlier pair-member to first_node
   end
 end

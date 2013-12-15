@@ -170,7 +170,7 @@ class LinkedList
       # current_node --> next_node; next_node --> (next+1)th
       new_node = next_node.next_list_item
       current_node = next_node
-      next_node = new_node
+      next_node = new_node if new_node != nil
      end until next_node.next_list_item.nil?
      in_order
     end

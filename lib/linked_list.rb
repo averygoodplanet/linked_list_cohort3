@@ -124,9 +124,14 @@ class LinkedList
     #retrieve node_to_remove's next_item
     new_next_item = node_to_remove.next_list_item
     #find node_before_node_to_remove
-    node_before_node =self.retrieve_node(index-1)
-    #change node_before_node_to_remove's next_item
-    # to new_next_item
-    node_before_node.next_list_item = new_next_item
+    if index != 0
+      node_before_node = self.retrieve_node(index-1)
+      #change node_before_node_to_remove's next_item
+      # to new_next_item
+      node_before_node.next_list_item = new_next_item
+    else
+      #if the node being removed if @first_node aka index=0
+      @first_node = new_next_item
+    end
   end
 end

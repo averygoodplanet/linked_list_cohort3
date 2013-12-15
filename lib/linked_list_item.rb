@@ -34,6 +34,10 @@ class LinkedListItem
     # if error raised, a break occurs (need to have a try-catch)
   end
 
+  def next_list_item_no_ArgumentError=(value)
+    @next_list_item = value
+  end
+
   # def next_list_item #attr_reader method
   #   @next_list_item
   # end

@@ -192,6 +192,43 @@ class LinkedList
   end
 
   def sort
+    if @size <= 1
+      self
+    else
+      current_node_index = 0
+      #start with first pair
+      current_node = @first_node
+      next_node = @first_node.next_list_item
+      begin
+        # each round start with no swaps
+        any_swaps_this_round = false
+        # determine whether the pair is already in order
+        # include but < and = (for duplicates)
+        in_order = (current_node <= next_node)
+        if !in_order
+          #if pair is out of order, swap them
+          next_node.next_list_item.nil?  ?  after_node = nil : after_node = next_node.next_list_item
+          current_node.next_list_item_no_ArgumentError= after_node
+          next_node.next_list_item= current_node
+          current_node_index == 0 ? @first_node = next_node : before_node = retrieve_node(current_node_index - 1)
+          before_node.next_list_item = next_node if current_node_index != 0
+          any_swaps_this_round = true
+        end
+        # if have compared last pair, go back to the beginning of list
+        if current_node_index >= (@size - 1)
+          current_node_index = 0
+          current_node = @first_node
+          next_node = @first_node.next_list_item
+        else
+          # otherwise move on to the next pair
+          new_node = next_node.next_list_item
+          current_node = next_node
+          next_node = new_node if new_node != nil
+          current_node_index += 1
+        end
+      end until !any_swaps_this_round
+    end
+    # return self; the changes to order will be made in self
     self
   end
 end

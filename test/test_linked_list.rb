@@ -106,7 +106,7 @@ class LinkedListTest < Test::Unit::TestCase
     ll.add_item("foo")
     ll.add_item("bar")
     ll.add_item("grille")
-    assert_equal '| foo, bar, grille |', ll.to_s
+    assert_equal('| foo, bar, grille |', ll.to_s)
   end
 
   # # ========= Bonus ========== #

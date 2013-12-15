@@ -65,7 +65,22 @@ class LinkedList
   end
 
 def to_s
-  display_string = "| |"
+  if @first_node.nil?
+    display_string = "| |"
+  else
+    display_string = "| "
+    #start at the first_node
+    current_node = @first_node
+    #until at last node
+    # each concatenate node.payload to display_string
+    until current_node.next_list_item.nil?
+      display_string = display_string + current_node.payload + ","
+    end
+
+    #concatenate last_node.payload to display_string and
+    #add trailing " |"
+    display_string = display_string + current_node.payload + " |"
+  end
 end
 
 end

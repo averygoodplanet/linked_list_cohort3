@@ -190,4 +190,8 @@ class LinkedList
     end
     duplicates
   end
+
+  def sort
+    self
+  end
 end

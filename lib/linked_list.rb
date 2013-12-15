@@ -134,4 +134,18 @@ class LinkedList
       @first_node = new_next_item
     end
   end
+
+  def indexOf(payload)
+    #if no match, return nil
+    index = nil
+
+    # search through linked list
+    for i in 0..(@size-1)
+      # if item's payload matches, store it's index
+      if self.get(i) == payload
+        index = i
+      end
+    end
+    index
+  end
 end

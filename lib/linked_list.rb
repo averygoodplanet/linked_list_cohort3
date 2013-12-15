@@ -201,7 +201,7 @@ class LinkedList
       next_node = @first_node.next_list_item
       begin
         puts "\nself at begin: " + self.to_s
-        puts "current_node, next_node: " + current_node.payload + ", " + next_node.payload
+        puts "current_node, next_node: " + current_node.payload + ", " + next_node.payload  if !next_node.nil?
         # each round start with no swaps
         swapped_this_pair = false
         # determine whether the pair is already in order
@@ -218,19 +218,28 @@ class LinkedList
           swapped_this_pair = true
         end
         # if have compared last pair, go back to the beginning of list
+        current_node_index += 1
         if current_node_index >= (@size - 1)
           current_node_index = 0
           current_node = @first_node
           next_node = @first_node.next_list_item
         else
           # otherwise move on to the next pair
-          new_node = next_node.next_list_item
-          current_node = next_node
-          next_node = new_node if new_node != nil
-          current_node_index += 1
+          if swapped_this_pair
+            #need to test this (difficulty modifying test file)
+            #a swap has occurred
+            # current_node is now already in proper new position
+            next_node = current_node.next_list_item
+            puts "new next_node.nil?: " + next_node.nil?.to_s
+         else
+           new_node = next_node.next_list_item
+           current_node = next_node
+           next_node = new_node if new_node != nil
+         end
         end
         puts  "swapped_this_pair: " + swapped_this_pair.to_s
         puts "self at end: " + self.to_s
+        puts "current_node, next_node at end: " + current_node.payload + ", " + next_node.payload  if !next_node.nil?
       end until !swapped_this_pair
     end
     # return self; the changes to order will be made in self

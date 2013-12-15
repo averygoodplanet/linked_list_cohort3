@@ -149,4 +149,10 @@ class LinkedList
     end
     index
   end
+
+  def sorted?
+    if @size == 0
+      true
+    end
+  end
 end

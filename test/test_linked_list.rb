@@ -85,7 +85,9 @@ class LinkedListTest < Test::Unit::TestCase
     ll.add_item("foo")
     ll.add_item("bar")
     ll.add_item("grille")
-    assert_equal("grille", ll.last)
+    # changed this assert_equal from ("grille", ll.last)
+    # to assert_equal ("grille", ll.last.)
+    assert_equal("grille", ll.last.payload)
   end
 
   def test_13_to_s_an_empty_linked_list

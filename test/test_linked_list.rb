@@ -126,6 +126,7 @@ class LinkedListTest < Test::Unit::TestCase
     ll.add_item("foo")
     ll.add_item("bar")
     ll.add_item("grille")
+    # wants ll[2] to be same as ll.get(2)
     assert_equal("grille", ll[2])
   end
 

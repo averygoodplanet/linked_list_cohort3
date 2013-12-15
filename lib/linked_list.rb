@@ -205,6 +205,8 @@ class LinkedList
         puts "current_node, next_node: " + current_node.payload + ", " + next_node.payload  if !next_node.nil?
         # each round start with no swaps
         swapped_this_pair = false
+        # when current node is the first node, reset swapped_this_full_cycle
+        swapped_this_full_cycle = false if current_node_index == 0
         # determine whether the pair is already in order
         # include but < and = (for duplicates)
         in_order = (current_node <= next_node)
@@ -225,7 +227,6 @@ class LinkedList
           current_node_index = 0
           current_node = @first_node
           next_node = @first_node.next_list_item
-          swapped_this_full_cycle = false
         else
           # otherwise move on to the next pair
           if swapped_this_pair
@@ -243,7 +244,7 @@ class LinkedList
         puts  "swapped_this_pair: " + swapped_this_pair.to_s
         puts "self at end: " + self.to_s
         puts "current_node, next_node at end: " + current_node.payload + ", " + next_node.payload  if !next_node.nil?
-      end until !swapped_this_full_cycle and (current_node_index != 0 or @size <= 2)
+      end until !swapped_this_full_cycle and (current_node_index ==0  or @size <= 2)
     end
     # return self; the changes to order will be made in self
     self

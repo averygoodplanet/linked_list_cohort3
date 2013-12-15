@@ -98,7 +98,7 @@ class LinkedListTest < Test::Unit::TestCase
   def test_14_to_s_a_single_item_list
     ll = LinkedList.new
     ll.add_item("foo")
-    assert_equal('| foo |', ll.to_s)
+    assert_equal("| foo |", ll.to_s)
   end
 
   def test_15_to_s_a_long_list
@@ -106,12 +106,11 @@ class LinkedListTest < Test::Unit::TestCase
     ll.add_item("foo")
     ll.add_item("bar")
     ll.add_item("grille")
-    assert_equal('| foo, bar, grille |', ll.to_s)
+    assert_equal "| foo, bar, grille |", ll.to_s
   end
 
-  # # ========= Bonus ========== #
-
   def test_16_initialize_takes_seed_argument
+    # # ========= Bonus ========== #
     ll = LinkedList.new("foo")
     assert_equal "| foo |", ll.to_s
   end

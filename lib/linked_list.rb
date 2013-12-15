@@ -75,6 +75,7 @@ def to_s
     # each concatenate node.payload to display_string
     until current_node.next_list_item.nil?
       display_string = display_string + current_node.payload + ","
+      current_node = current_node.next_list_item
     end
 
     #concatenate last_node.payload to display_string and

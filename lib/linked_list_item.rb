@@ -76,6 +76,12 @@ class LinkedListItem
       # returning +1 to signify String > Fixnum
       # Fixnum is class of integers
       +1
+    elsif (payload.class==Symbol and another.payload.class==Fixnum)
+      #returning +1 to signify symbol > fixnum
+      +1
+    elsif(payload.class==Fixnum and another.payload.class==Symbol)
+      #returning -1 to signify fixnum < symbol
+      -1
     else
       payload <=> another.payload
     end

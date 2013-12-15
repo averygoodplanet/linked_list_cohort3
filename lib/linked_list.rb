@@ -97,13 +97,13 @@ class LinkedList
       #until at last node
       # each concatenate node.payload to display_string
       until current_node.next_list_item.nil?
-        display_string = display_string + current_node.payload + ", "
+        display_string = display_string + current_node.payload.to_s + ", "
         current_node = current_node.next_list_item
       end
 
       #concatenate last_node.payload to display_string and
       #add trailing " |"
-      display_string = display_string + current_node.payload + " |"
+      display_string = display_string + current_node.payload.to_s + " |"
     end
   end
 
@@ -202,7 +202,7 @@ class LinkedList
       next_node = @first_node.next_list_item
       begin
         puts "\nself at begin: " + self.to_s
-        puts "current_node, next_node: " + current_node.payload + ", " + next_node.payload  if !next_node.nil?
+        puts "current_node, next_node: " + current_node.payload.to_s + ", " + next_node.payload.to_s  if !next_node.nil?
         # each round start with no swaps
         swapped_this_pair = false
         # when current node is the first node, reset swapped_this_full_cycle
@@ -243,7 +243,7 @@ class LinkedList
         end
         puts  "swapped_this_pair: " + swapped_this_pair.to_s
         puts "self at end: " + self.to_s
-        puts "current_node, next_node at end: " + current_node.payload + ", " + next_node.payload  if !next_node.nil?
+        puts "current_node, next_node at end: " + current_node.payload.to_s + ", " + next_node.payload.to_s  if !next_node.nil?
       end until !swapped_this_full_cycle and (current_node_index ==0  or @size <= 2)
     end
     # return self; the changes to order will be made in self

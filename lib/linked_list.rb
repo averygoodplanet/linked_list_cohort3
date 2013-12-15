@@ -196,6 +196,7 @@ class LinkedList
       self
     else
       current_node_index = 0
+      swapped_this_full_cycle = false
       #start with first pair
       current_node = @first_node
       next_node = @first_node.next_list_item
@@ -216,6 +217,7 @@ class LinkedList
           current_node_index == 0 ? @first_node = next_node : before_node = retrieve_node(current_node_index - 1)
           before_node.next_list_item = next_node if current_node_index != 0
           swapped_this_pair = true
+          swapped_this_full_cycle = true
         end
         # if have compared last pair, go back to the beginning of list
         current_node_index += 1
@@ -223,6 +225,7 @@ class LinkedList
           current_node_index = 0
           current_node = @first_node
           next_node = @first_node.next_list_item
+          swapped_this_full_cycle = false
         else
           # otherwise move on to the next pair
           if swapped_this_pair
@@ -240,7 +243,7 @@ class LinkedList
         puts  "swapped_this_pair: " + swapped_this_pair.to_s
         puts "self at end: " + self.to_s
         puts "current_node, next_node at end: " + current_node.payload + ", " + next_node.payload  if !next_node.nil?
-      end until !swapped_this_pair
+      end until !swapped_this_full_cycle and (current_node_index != 0 or @size <= 2)
     end
     # return self; the changes to order will be made in self
     self

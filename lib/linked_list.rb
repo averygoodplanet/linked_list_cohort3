@@ -46,9 +46,8 @@ class LinkedList
       end
       #return value of nth node
       current_node.payload
-    elsif number < 0
-      raise IndexError, "negative index passed to ll.get()"
     else
+      raise IndexError, "negative index passed to ll.get()"
     end
   end
 
@@ -93,5 +92,7 @@ class LinkedList
   end
 
   def []=(index, payload) # args for ll[index]=payload
+    #find the node at index
+    #assign payload to the node
   end
 end

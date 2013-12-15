@@ -116,4 +116,8 @@ class LinkedList
     retrieve_node(index).payload=payload
     #assign payload to the node
   end
+
+  def remove(index)
+    @size -= 1
+  end
 end

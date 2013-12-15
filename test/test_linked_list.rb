@@ -151,7 +151,6 @@ class LinkedListTest < Test::Unit::TestCase
     ll.add_item("bar")
     ll.add_item("grille")
     ll.remove(2)
-
     assert_equal(2, ll.size)
   end
 

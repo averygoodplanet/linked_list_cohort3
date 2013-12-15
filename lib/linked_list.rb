@@ -91,4 +91,7 @@ class LinkedList
   def [](index)
     self.get(index)
   end
+
+  def []=(index, payload) # args for ll[index]=payload
+  end
 end

@@ -109,8 +109,9 @@ class LinkedListTest < Test::Unit::TestCase
     assert_equal "| foo, bar, grille |", ll.to_s
   end
 
+# # ========= Bonus ========== #
+
   def test_16_initialize_takes_seed_argument
-    # # ========= Bonus ========== #
     ll = LinkedList.new("foo")
     assert_equal "| foo |", ll.to_s
   end

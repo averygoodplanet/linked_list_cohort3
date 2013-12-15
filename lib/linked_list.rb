@@ -156,6 +156,23 @@ class LinkedList
     elsif self.all_duplicates?
       true
     else
+      #get current_node and next_node
+      current_node = @first_node
+      #already know that at least two nodes (see if statement above)
+      next_node = @first_node.next_list_item
+      begin
+      #check to see if they are in order
+      in_order = (current_node < next_node)
+      # if not in order, break and return false
+        if !in_order
+          break
+        end
+      # current_node --> next_node; next_node --> (next+1)th
+      new_node = next_node.next_list_item
+      current_node = next_node
+      next_node = new_node
+     end until next_node.next_list_item.nil?
+     in_order
     end
   end
 

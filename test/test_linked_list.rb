@@ -160,7 +160,6 @@ class LinkedListTest < Test::Unit::TestCase
     ll.add_item("bar")
     ll.add_item("grille")
     ll.remove(2)
-
     assert_equal '| foo, bar |', ll.to_s
   end
 
@@ -170,7 +169,6 @@ class LinkedListTest < Test::Unit::TestCase
     ll.add_item("bar")
     ll.add_item("grille")
     ll.remove(0)
-
     assert_equal '| bar, grille |', ll.to_s
   end
 

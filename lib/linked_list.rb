@@ -119,5 +119,14 @@ class LinkedList
 
   def remove(index)
     @size -= 1
+    #find the node_to_remove
+    node_to_remove = self.retrieve_node(index)
+    #retrieve node_to_remove's next_item
+    new_next_item = node_to_remove.next_list_item
+    #find node_before_node_to_remove
+    node_before_node =self.retrieve_node(index-1)
+    #change node_before_node_to_remove's next_item
+    # to new_next_item
+    node_before_node.next_list_item = new_next_item
   end
 end
